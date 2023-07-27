@@ -1,10 +1,13 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import RedirectResponse
 from typing import List, Optional
 from pydantic import BaseModel
 
 app = FastAPI()
 
 class Cliente(BaseModel):
+
+    
     id: int
     nome: str
     cnpj: str
@@ -15,7 +18,13 @@ class Cliente(BaseModel):
     pais: str
     status: str
 
-# Simulando um banco de dados com clientes
+@app.middleware("http")
+async def redirect_to_clientes(request: Request, call_next):
+    if request.url.path == "/":
+        response = RedirectResponse(url="/clientes/")
+    else:
+        response = await call_next(request)
+    return response
 clientes_db = [
     {
         "id": 1,
