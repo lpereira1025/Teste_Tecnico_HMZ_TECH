@@ -6,8 +6,6 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class Cliente(BaseModel):
-
-    
     id: int
     nome: str
     cnpj: str
@@ -17,14 +15,7 @@ class Cliente(BaseModel):
     estado: str
     pais: str
     status: str
-
-@app.middleware("http")
-async def redirect_to_clientes(request: Request, call_next):
-    if request.url.path == "/":
-        response = RedirectResponse(url="/clientes/")
-    else:
-        response = await call_next(request)
-    return response
+    
 clientes_db = [
     {
         "id": 1,
@@ -49,6 +40,14 @@ clientes_db = [
         "status": "Inativo"
     }
 ]
+
+@app.middleware("http")
+async def redirect_to_clientes(request: Request, call_next):
+    if request.url.path == "/":
+        response = RedirectResponse(url="/clientes/")
+    else:
+        response = await call_next(request)
+    return response
 
 @app.get("/clientes/", response_model=List[Cliente])
 def get_clientes():
@@ -90,3 +89,4 @@ def delete_cliente(cliente_id: int):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     clientes_db.remove(cliente)
     return cliente
+
