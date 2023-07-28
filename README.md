@@ -86,3 +86,11 @@ Como solução, escolheria duas opções:
 <h2>Arquivo SQL</h2>
 
 Conforme solicitado, o arquivo do banco de dados para <a href="https://drive.google.com/file/d/1V50WMNOqBQ1C30ENeWcCzK9Pot7uaLF0/view?usp=drive_link">Download</a>. 
+
+<hr>
+
+<h2>Parte do Front</h2>
+
+Conforme solicitado, foi criado uma aplicação simples em React.js para ilustrar o funcionamento dessa Api, pode ser acessado através desse <ahref="https://github.com/lpereira1025/Testando_Api_Teste_Tecnico/tree/main">LINK</a>.
+
+**Para o funcionamento dessa aplicação, essa Api deve estar rodando.**
