@@ -11,7 +11,7 @@ Projeto com objetivo de disponibilizar uma API Rest para expor clientes com seus
 
 <h2>Plano organizacional</h2>
 
-Após verificar todas as regras, construi um fluxograma para mapear o passo a passo do que fazer; 
+Após verificar todas as regras, construí um fluxograma para mapear o passo a passo do que fazer; 
 
 A tecnologia escolhida para compor esse projeto foi Python com o framework FastApi, visano desempenho com agilidade.
 
@@ -27,7 +27,7 @@ Antes de executar o projeto, você precisará ter o Python e o framework FastAPI
 
 •	Instale as dependências: pip install -r requirements.txt
 
-•	Para executar o projeto, utilize o seguinte comando:uvicorn main:app --reload
+•	Para executar o projeto, utilize o seguinte comando: uvicorn main:app --reload
 
 <hr>
 
