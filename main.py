@@ -2,8 +2,16 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from typing import List, Optional
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Cliente(BaseModel):
     id: int
@@ -89,4 +97,5 @@ def delete_cliente(cliente_id: int):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     clientes_db.remove(cliente)
     return cliente
+
 
