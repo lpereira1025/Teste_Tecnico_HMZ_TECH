@@ -21,17 +21,22 @@ O software usado para realizar os testes foi o <a href="https://insomnia.rest/do
 
 Antes de executar o projeto, você precisará ter o Python e o framework FastAPI instalados em sua máquina.
 
-•	Python: <a href="https://www.python.org/downloads/">Link para download do Python</a>
+•	Python: <a href="https://www.python.org/downloads/">Link para download do Python</a>;
 
-•	FastAPI: pip install fastapi
+•	FastAPI: pip install fastapi;
 
-•	Instale as dependências: pip install -r requirements.txt
+•	Instale a Uvicorn (é uma implementação de servidor web ASGI para Python): pip install uvicorn;
 
-•	Para executar o projeto, utilize o seguinte comando: uvicorn main:app --reload
+•	Para executar o projeto, utilize o seguinte comando: uvicorn main:app --reload.
 
 <hr>
 
 <h2>Uso da Api</h2>
+
+•	Para a documentação da API(insira o "/docs" no final da url): http://127.0.0.1:8000/docs
+
+![Docs](https://github.com/lpereira1025/Teste_Tecnico_HMZ_TECH/assets/69816562/a767d652-0278-4f38-980a-5872c68f652f)
+
 
 •	GET /clientes/: Retorna uma lista de todos os clientes cadastrados.
 
@@ -74,7 +79,7 @@ Como solução, escolheria duas opções:
 
 1° - Através das bibliotecas fastapi.security e fastapi_users: Fornece suporte para esquemas de autenticação comuns, como OAuth2 e Basic Authentication. Ela permite que você proteja rotas específicas em sua API, exigindo que os clientes autentiquem-se antes de acessar recursos protegidos além de gerenciamento de usuários de alto nível que se integra perfeitamente com o FastAPI. Ela facilita a criação de rotas de autenticação e gerenciamento de usuários em sua API.
 
-2° - Através do JWT: Ser autocontido (todas as informações necessárias estão no próprio token) e ser facilmente verificável pelo servidor sem precisar fazer consultas adicionais ao banco de dados.
+2° - Através do JWT: Ser autocontido (todas as informações necessárias estão no próprio token) e ser facilmente verificável pelo servidor sem precisar fazer consultas adicionais ao banco de dados. Quando o cliente envia uma solicitação com um token JWT no cabeçalho, o servidor pode verificar a validade do token usando a chave secreta para garantir que ele não tenha sido adulterado e que o usuário seja autenticado corretamente.
 
 <hr>
 
